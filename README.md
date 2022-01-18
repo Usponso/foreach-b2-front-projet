@@ -1,8 +1,10 @@
 # Projet Vue.js 2 - ForEach B2
 
+## Enzo Averlant
+
 C'est le moment de mettre en pratique vos connaissances avec Vue.js et de mettre en applications les différentes fonctionnalités qui ont été étudiées en créant une app!
 
-## Quel est le projet (spécifications) ? 
+## Quel est le projet (spécifications) ?
 
 Le but est de proposer une expérience utilisateur à partir d'une API de votre choix. En voici quelques-unes, mais libre à vous d'en utiliser une autre (à condition qu'elle rentre dans le cadre du projet) ou même de flex vos compétences backend en la créant vous-mêmes.
 
@@ -21,22 +23,22 @@ Ces différentes APIs représentent principalement des données, à vous de prop
 L'évaluation des compétences se fera sur les axes suivants:
 
 1. Maitrise des concepts de base de Vue.js
-    - Rendu déclaratif (`template`) et directives (`v-`)
-    - Communication entre composants (`props`/`events`)
-    - Utilisation des options (`computed`, `methods`...)
-    - Réutilisation du code (`slots`, `mixins`...)
+   - Rendu déclaratif (`template`) et directives (`v-`)
+   - Communication entre composants (`props`/`events`)
+   - Utilisation des options (`computed`, `methods`...)
+   - Réutilisation du code (`slots`, `mixins`...)
 2. Utilisation des plugins
-    - Navigation avec le routeur (`vue-router`)
-    - State global avec le store (`vuex`)
-    - Autres (`vuetify`, `vue-i18n`...)
+   - Navigation avec le routeur (`vue-router`)
+   - State global avec le store (`vuex`)
+   - Autres (`vuetify`, `vue-i18n`...)
 3. Intéragir avec les APIs
-    - Réaliser des appels (`axios`, `fetch`)
-    - Gérer l'asynchronicité (`.then`, `async/await`)
-    - Gérer les erreurs (`try/catch`, `.catch`)
+   - Réaliser des appels (`axios`, `fetch`)
+   - Gérer l'asynchronicité (`.then`, `async/await`)
+   - Gérer les erreurs (`try/catch`, `.catch`)
 4. Organisation du projet et developer experience
-    - Organiser les différentes composantes du projet (dossiers, nommage...)
-    - Analyse statique du code, lintage et formattage (`eslint`, `prettier`...)
-    - Documentation (comment démarrer...)
+   - Organiser les différentes composantes du projet (dossiers, nommage...)
+   - Analyse statique du code, lintage et formattage (`eslint`, `prettier`...)
+   - Documentation (comment démarrer...)
 
 Pour vous donner quelques pistes:
 
