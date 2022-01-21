@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="text-center">
     <v-col cols="12">
       <v-img
         :src="require('../assets/logo_pokeapi.png')"

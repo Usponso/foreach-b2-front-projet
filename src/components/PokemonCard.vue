@@ -4,7 +4,7 @@
       <v-list-item three-line>
         <v-list-item-content>
           <div class="text-overline mb-4">POKEMON</div>
-          <v-list-item-title class="text-h5 mb-1">
+          <v-list-item-title class="text-h5 mb-1 text-uppercase">
             <slot name="nom"></slot
           ></v-list-item-title>
           <v-list-item-subtitle
@@ -18,12 +18,18 @@
             contain
           >
             <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
+              <!-- <v-row class="fill-height ma-0" align="center" justify="center">
+               <v-progress-circular
                   indeterminate
                   color="primary"
                 ></v-progress-circular>
-              </v-row> </template
+              </v-row>  -->
+              <img
+                src="../assets/pokeball.png"
+                class="rotate"
+                alt="loading"
+                width="60px"
+              /> </template
           ></v-img>
         </v-list-item-avatar>
       </v-list-item>
@@ -47,8 +53,12 @@
 </template>
 <script>
 import { getPokemonByName } from "../apis/pokemons";
+//import Placeholder from "./Placeholder.vue";
 
 export default {
+  components: {
+    //Placeholder,
+  },
   props: {
     name: {
       type: String,
@@ -80,8 +90,21 @@ export default {
 <style>
 .v-card {
   margin-bottom: 20px;
+  padding: 10px;
 }
 .v-card__actions {
   justify-content: space-between;
+}
+
+.rotate {
+  animation: rotation 2s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 </style>

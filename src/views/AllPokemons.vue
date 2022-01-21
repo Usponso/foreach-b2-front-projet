@@ -3,19 +3,31 @@
     <v-row no-gutters>
       <v-col md="4" v-for="pokemon in pokemons.results" :key="pokemon.name"
         ><pokemon-card class="pa-2" :name="pokemon.name">
-          <template #nom>{{ pokemon.name.toUpperCase() }}</template>
+          <template #nom>{{ pokemon.name }}</template>
           <template #lien>
             <router-link :to="{ path: `pokemons/${pokemon.name}` }">
               <v-btn color="primary" elevation="2">Ouvrir</v-btn>
             </router-link>
             <v-btn v-if="checkFav(pokemon.name)" @click="addPoke(pokemon.name)">
-              <v-icon>mdi-heart</v-icon> Ajouter</v-btn
-            ><v-btn v-else @click="deletePoke(pokemon.name)"
+              <v-icon class="red--text">mdi-heart</v-icon> Ajouter</v-btn
+            ><v-btn
+              color="red white--text"
+              v-else
+              @click="deletePoke(pokemon.name)"
               ><v-icon>mdi-delete</v-icon> Supprimer</v-btn
             ></template
           ></pokemon-card
         ></v-col
       >
+      <v-snackbar v-model="snackbar" :timeout="timeout" color="green darken-1">
+        {{ text }}
+
+        <template v-slot:action="{ attrs }">
+          <v-btn color="white" text v-bind="attrs" @click="snackbar = false">
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
     </v-row>
   </v-container>
 </template>
@@ -33,6 +45,9 @@ export default {
     return {
       pokemons: [],
       error: "",
+      snackbar: false,
+      timeout: 2000,
+      text: "",
     };
   },
   methods: {
@@ -46,11 +61,25 @@ export default {
     addPoke(name) {
       if (this.checkFav(name)) {
         this.$store.commit("addFavoris", name);
+        this.text = "Ajout du favori réussi";
+        this.snackbar = true;
+        this.color = "green darken-1";
+      } else {
+        this.text = "Une erreur est survenue lors de l'ajout";
+        this.snackbar = true;
+        this.color = "red darken-1";
       }
     },
     deletePoke(name) {
       if (!this.checkFav(name)) {
         this.$store.commit("deleteFavoris", name);
+        this.text = "Suppression réussie";
+        this.snackbar = true;
+        this.color = "green darken-1";
+      } else {
+        this.text = "Une erreur est survenue lors de la suppression";
+        this.snackbar = true;
+        this.color = "red darken-1";
       }
     },
     checkFav(name) {
