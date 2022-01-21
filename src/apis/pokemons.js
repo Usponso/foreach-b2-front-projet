@@ -6,7 +6,7 @@ const pokeInstance = axios.create({
 
 export async function getAllPokemons() {
   try {
-    const res = await pokeInstance("?limit=200/");
+    const res = await pokeInstance("?limit=50/");
     return res.data;
   } catch (e) {
     throw new Error("La requête a échoué");

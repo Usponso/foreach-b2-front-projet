@@ -4,15 +4,18 @@
       <v-col md="4" v-for="pokemon in pokemons.results" :key="pokemon.name"
         ><pokemon-card class="pa-2" :name="pokemon.name">
           <template #nom>{{ pokemon.name.toUpperCase() }}</template>
-          <template #lien
-            ><router-link :to="{ path: `pokemons/${pokemon.name}` }"
-              ><v-btn color="primary" elevation="2">Ouvrir</v-btn></router-link
-            ><v-btn @click="add(pokemon.name)"
-              ><v-icon>mdi-heart</v-icon></v-btn
+          <template #lien>
+            <router-link :to="{ path: `pokemons/${pokemon.name}` }">
+              <v-btn color="primary" elevation="2">Ouvrir</v-btn>
+            </router-link>
+            <v-btn v-if="checkFav(pokemon.name)" @click="addPoke(pokemon.name)">
+              <v-icon>mdi-heart</v-icon> Ajouter</v-btn
+            ><v-btn v-else @click="deletePoke(pokemon.name)"
+              ><v-icon>mdi-delete</v-icon> Supprimer</v-btn
             ></template
-          >
-          <template #image></template></pokemon-card
-      ></v-col>
+          ></pokemon-card
+        ></v-col
+      >
     </v-row>
   </v-container>
 </template>
@@ -40,8 +43,22 @@ export default {
         this.error = e;
       }
     },
-    add(name) {
-      this.$store.commit("addFavoris", name);
+    addPoke(name) {
+      if (this.checkFav(name)) {
+        this.$store.commit("addFavoris", name);
+      }
+    },
+    deletePoke(name) {
+      if (!this.checkFav(name)) {
+        this.$store.commit("deleteFavoris", name);
+      }
+    },
+    checkFav(name) {
+      if (!this.$store.state.favoris.includes(name)) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   async mounted() {

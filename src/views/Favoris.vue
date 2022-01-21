@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-row no-gutters>
-      <v-col md="4" v-for="pokemon in favoris" :key="pokemon.name"
+    <v-row no-gutters v-if="favoris.length">
+      <v-col md="4" v-for="pokemon in favoris" :key="pokemon.id"
         ><pokemon-card class="pa-2" :name="pokemon.name">
           <template #nom>{{ pokemon.name.toUpperCase() }}</template>
           <template #lien
@@ -11,9 +11,17 @@
             <v-btn @click="deleteFavoris(pokemon.name)"
               ><v-icon>mdi-delete</v-icon> Supprimer</v-btn
             ></template
-          >
-          <template #image></template></pokemon-card
-      ></v-col>
+          ></pokemon-card
+        ></v-col
+      >
+    </v-row>
+    <v-row class="text-center" v-else>
+      <v-col
+        ><h1>
+          :( <br />
+          Aucun favoris
+        </h1></v-col
+      >
     </v-row>
   </v-container>
 </template>
@@ -33,17 +41,19 @@ export default {
   methods: {
     deleteFavoris(name) {
       this.$store.commit("deleteFavoris", name);
+      this.getFavoris();
     },
     async getFavoris() {
       this.favoris = await getFavoris(this.$store.state.favoris);
     },
+    checkFav() {
+      if (this.favoris) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
-  // watch: {
-  //   favoris: async function () {
-  //     this.favoris = await getFavoris(this.$store.state.favoris);
-  //     //this.getFavoris();
-  //   },
-  // },
   async mounted() {
     this.getFavoris();
   },

@@ -10,11 +10,11 @@
       <br />
       <v-col md="4" sm="12">
         <v-img
-          :src="`${this.pokemon.sprites.other.dream_world.front_default}`"
+          v-if="loading"
+          :src="`${pokemon.sprites.other.dream_world.front_default}`"
         />
         <br />
-        <h1>{{ this.pokemon.name.toUpperCase() }}</h1>
-        {{ pokemon.sprites.other }}
+        <h1 v-if="loading">{{ this.pokemon.name.toUpperCase() }}</h1>
       </v-col>
       <v-col md="6">
         {{ this.types }}
@@ -33,7 +33,7 @@ export default {
       pokemon: {},
       types: [],
       error: "",
-      art: "official-artwork",
+      loading: false,
     };
   },
   methods: {
@@ -41,6 +41,7 @@ export default {
       try {
         this.pokemon = await getPokemonByName(this.$route.params.name);
         this.types = this.pokemon.types;
+        this.loading = true;
       } catch (e) {
         this.error = e;
         console.error(e);
@@ -55,3 +56,4 @@ export default {
   },
 };
 </script>
+<style scoped></style>
