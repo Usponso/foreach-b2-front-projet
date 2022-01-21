@@ -9,7 +9,7 @@
               ><v-btn color="primary" elevation="2">Ouvrir</v-btn></router-link
             >
             <v-btn class="red white--text" @click="deleteFavoris(pokemon.name)"
-              ><v-icon>mdi-delete</v-icon> Supprimer</v-btn
+              ><v-icon>mdi-delete</v-icon> {{ $t("btnDelete") }}</v-btn
             ></template
           ></pokemon-card
         ></v-col
@@ -19,12 +19,12 @@
       <v-col
         ><h1>
           :( <br />
-          Aucun favoris
+          {{ $t("noFavorites") }}
         </h1>
         <br />
         <v-btn color="light" class="add"
           ><router-link to="/pokemons"
-            ><v-icon>mdi-plus</v-icon> Ajouter</router-link
+            ><v-icon>mdi-plus</v-icon> {{ $t("btnAdd") }}</router-link
           ></v-btn
         >
       </v-col>

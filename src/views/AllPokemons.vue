@@ -6,15 +6,16 @@
           <template #nom>{{ pokemon.name }}</template>
           <template #lien>
             <router-link :to="{ path: `pokemons/${pokemon.name}` }">
-              <v-btn color="primary" elevation="2">Ouvrir</v-btn>
+              <v-btn color="primary" elevation="2">{{ $t("btnOpen") }}</v-btn>
             </router-link>
             <v-btn v-if="checkFav(pokemon.name)" @click="addPoke(pokemon.name)">
-              <v-icon class="red--text">mdi-heart</v-icon> Ajouter</v-btn
+              <v-icon class="red--text">mdi-heart</v-icon>
+              {{ $t("btnAdd") }}</v-btn
             ><v-btn
               color="red white--text"
               v-else
               @click="deletePoke(pokemon.name)"
-              ><v-icon>mdi-delete</v-icon> Supprimer</v-btn
+              ><v-icon>mdi-delete</v-icon> {{ $t("btnDelete") }}</v-btn
             ></template
           ></pokemon-card
         ></v-col

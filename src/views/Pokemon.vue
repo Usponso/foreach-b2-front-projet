@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-btn :disabled="$router.history.length" @click="goBack">
-        <v-icon> mdi-chevron-left</v-icon>Retour
+        <v-icon> mdi-chevron-left</v-icon>{{ $t("btnBack") }}
       </v-btn>
     </v-row>
 
@@ -28,14 +28,14 @@
         </v-row>
 
         <br />
-        <h2 class="description_title">Statistiques de base</h2>
+        <h2 class="description_title">{{ $t("baseStats") }}</h2>
 
         <v-row>
           <v-col md="4" cols="12" v-for="stat in stats" :key="stat.stat.name">
             <v-card class="stat_card">
               <v-card-title
                 class="red darken-1 justify-center text-uppercase"
-                >{{ stat.stat.name }}</v-card-title
+                >{{ $t(stat.stat.name) }}</v-card-title
               >
               <v-card-text class="text-center stat_value pa-4">{{
                 stat.base_stat
@@ -50,7 +50,7 @@
       <v-col md="6" cols="12">
         <v-row>
           <v-col cols="12" class="text-center">
-            <h2>Par défaut</h2>
+            <h2>{{ $t("default") }}</h2>
           </v-col>
         </v-row>
         <v-row>

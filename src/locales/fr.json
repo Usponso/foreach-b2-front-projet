@@ -1,0 +1,19 @@
+{
+  "message": "bonjour i18n !!",
+  "allPokemons": "Tous les Pokemons",
+  "favorites": "Favoris",
+  "btnBack": "Retour",
+  "btnAdd": "Ajouter",
+  "btnOpen": "Ouvrir",
+  "btnDelete": "Supprimer",
+  "baseStats": "Statistiques de base",
+  "hp": "Vie",
+  "attack": "Attaque",
+  "defense": "Défense",
+  "special-attack": "Attaque spé",
+  "special-defense": "Défense spé",
+  "speed": "Vitesse",
+  "default": "Par défaut",
+  "noFavorites": "Aucun favoris",
+  "changeLangBtn": "Changer la langue"
+}
