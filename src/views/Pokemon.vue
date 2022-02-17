@@ -9,7 +9,9 @@
     <v-row class="text-center description" v-if="loading">
       <br />
       <v-col md="4" cols="12" class="align-self-center">
-        <v-img :src="`${pokemon.sprites.other.dream_world.front_default}`" />
+        <v-img
+          :src="`${pokemon.sprites.other['official-artwork'].front_default}`"
+        />
         <br />
         <h1 class="text-uppercase">
           {{ "#" + this.pokemon.id + " " + this.pokemon.name }}
@@ -19,6 +21,7 @@
         <h2 class="description_title">Type(s)</h2>
         <br />
         <v-row class="types">
+          <!-- Affichage dynamique des types en image -->
           <v-img
             v-for="type in types"
             :key="type.id"
@@ -33,8 +36,10 @@
         <v-row>
           <v-col md="4" cols="12" v-for="stat in stats" :key="stat.stat.name">
             <v-card class="stat_card">
+              <!-- Classe dynamique pour changer les couleurs en des cards en fonction du type principal -->
               <v-card-title
-                class="red darken-1 justify-center text-uppercase"
+                class="darken-1 white--text justify-center text-uppercase"
+                :class="[types[0].type.name]"
                 >{{ $t(stat.stat.name) }}</v-card-title
               >
               <v-card-text class="text-center stat_value pa-4">{{
@@ -54,8 +59,20 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-img :src="sprites.front_default" max-width="100%"></v-img>
-          <v-img :src="sprites.back_default" max-width="100%"></v-img>
+          <v-img
+            :src="
+              sprites.versions['generation-v']['black-white'].animated
+                .front_default
+            "
+            contain
+          ></v-img>
+          <v-img
+            :src="
+              sprites.versions['generation-v']['black-white'].animated
+                .back_default
+            "
+            contain
+          ></v-img>
         </v-row>
       </v-col>
 
@@ -66,8 +83,20 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-img :src="sprites.front_shiny" max-width="100%"></v-img>
-          <v-img :src="sprites.back_shiny" max-width="100%"></v-img>
+          <v-img
+            :src="
+              sprites.versions['generation-v']['black-white'].animated
+                .front_shiny
+            "
+            contain
+          ></v-img>
+          <v-img
+            :src="
+              sprites.versions['generation-v']['black-white'].animated
+                .back_shiny
+            "
+            contain
+          ></v-img>
         </v-row>
       </v-col>
     </v-row>
@@ -112,6 +141,8 @@ export default {
 };
 </script>
 <style scoped>
+@import "../assets/css/colors.css";
+
 .description {
   margin-top: 40px;
   border: 1px solid white;

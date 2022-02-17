@@ -18,9 +18,6 @@
         Utilisation d'une api pour manipuler les différentes notions vues en
         cours.
       </p>
-
-      <p>{{ $t("message") }}</p>
-      <p>{{ "langue:" + this.$i18n.locale }}</p>
     </v-col>
   </v-container>
 </template>

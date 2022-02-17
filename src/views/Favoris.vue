@@ -6,7 +6,9 @@
           <template #nom>{{ pokemon.name.toUpperCase() }}</template>
           <template #lien
             ><router-link :to="{ path: `pokemons/${pokemon.name}` }"
-              ><v-btn color="primary" elevation="2">Ouvrir</v-btn></router-link
+              ><v-btn color="primary" elevation="2">{{
+                $t("btnOpen")
+              }}</v-btn></router-link
             >
             <v-btn class="red white--text" @click="deleteFavoris(pokemon.name)"
               ><v-icon>mdi-delete</v-icon> {{ $t("btnDelete") }}</v-btn

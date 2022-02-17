@@ -14,7 +14,7 @@
 
         <v-list-item-avatar tile size="100">
           <v-img
-            :src="`${pokemon.sprites.other.dream_world.front_default}`"
+            :src="`${pokemon.sprites.versions['generation-v']['black-white'].animated.front_default}`"
             contain
           >
             <template v-slot:placeholder>
