@@ -1,7 +1,6 @@
 <template>
   <v-container>
     <v-row no-gutters v-if="favoris.length">
-      {{ favoris }}
       <v-col md="4" v-for="pokemon in favoris" :key="pokemon.id"
         ><pokemon-card class="pa-2" :name="pokemon">
           <template #nom>{{ pokemon.toUpperCase() }}</template>

@@ -141,6 +141,7 @@ export default {
 };
 </script>
 <style scoped>
+/* Import des couleurs des types */
 @import "../assets/css/colors.css";
 
 .description {

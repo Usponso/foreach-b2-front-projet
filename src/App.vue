@@ -16,21 +16,35 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn text
-        ><router-link to="/pokemons"
-          ><v-icon>mdi-pokeball </v-icon> {{ $t("allPokemons") }}</router-link
-        ></v-btn
-      >
-      <v-btn text
-        ><router-link to="/favoris"
-          ><v-icon>mdi-heart </v-icon> {{ $t("favorites") }}</router-link
-        ></v-btn
-      >
+      <div v-if="$vuetify.breakpoint.mobile">
+        <v-btn text>
+          <router-link to="/pokemons">
+            <v-icon>mdi-pokeball</v-icon>
+          </router-link>
+        </v-btn>
+        <v-btn text>
+          <router-link to="/favoris">
+            <v-icon>mdi-heart</v-icon>
+          </router-link>
+        </v-btn>
+      </div>
+      <div v-else>
+        <v-btn text>
+          <router-link to="/pokemons">
+            <v-icon>mdi-pokeball </v-icon> {{ $t("allPokemons") }}
+          </router-link>
+        </v-btn>
+        <v-btn text>
+          <router-link to="/favoris">
+            <v-icon>mdi-heart </v-icon> {{ $t("favorites") }}
+          </router-link>
+        </v-btn>
+      </div>
 
       <v-btn text class="white--text" @click="changeLang">
         <v-icon>mdi-translate </v-icon>
-        {{ $i18n.locale }}</v-btn
-      >
+        {{ $i18n.locale }}
+      </v-btn>
     </v-app-bar>
 
     <v-main>

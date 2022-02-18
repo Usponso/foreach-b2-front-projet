@@ -21,7 +21,7 @@
         ></v-col
       >
       <v-snackbar v-model="snackbar" :timeout="timeout" color="green darken-1">
-        {{ text }}
+        {{ $t(text) }}
 
         <template v-slot:action="{ attrs }">
           <v-btn color="white" text v-bind="attrs" @click="snackbar = false">
