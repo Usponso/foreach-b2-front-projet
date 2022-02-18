@@ -20,8 +20,8 @@
           ></pokemon-card
         ></v-col
       >
-      <v-snackbar v-model="snackbar" :timeout="timeout" color="green darken-1">
-        {{ $t(text) }}
+      <v-snackbar v-model="snackbar" :timeout="timeout" :color="color">
+        {{ $t(`alert[${this.text}]`) }}
 
         <template v-slot:action="{ attrs }">
           <v-btn color="white" text v-bind="attrs" @click="snackbar = false">
@@ -49,6 +49,7 @@ export default {
       snackbar: false,
       timeout: 2000,
       text: "",
+      color: "",
     };
   },
   methods: {
@@ -62,11 +63,11 @@ export default {
     addPoke(name) {
       if (this.checkFav(name)) {
         this.$store.commit("addFavoris", name);
-        this.text = "Ajout du favori réussi";
+        this.text = 0;
         this.snackbar = true;
         this.color = "green darken-1";
       } else {
-        this.text = "Une erreur est survenue lors de l'ajout";
+        this.text = 1;
         this.snackbar = true;
         this.color = "red darken-1";
       }
@@ -74,11 +75,11 @@ export default {
     deletePoke(name) {
       if (!this.checkFav(name)) {
         this.$store.commit("deleteFavoris", name);
-        this.text = "Suppression réussie";
+        this.text = 2;
         this.snackbar = true;
         this.color = "green darken-1";
       } else {
-        this.text = "Une erreur est survenue lors de la suppression";
+        this.text = 3;
         this.snackbar = true;
         this.color = "red darken-1";
       }

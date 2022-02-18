@@ -15,5 +15,13 @@
   "speed": "Vitesse",
   "default": "Par défaut",
   "noFavorites": "Aucun favoris",
-  "changeLangBtn": "Changer la langue"
+  "changeLangBtn": "Changer la langue",
+  "homeTitle": "Projet front avancé vue.js",
+  "homeDescription": "Utilisation d'une api pour manipuler les différentes notions vues en cours",
+  "alert": [
+    "Ajout du favori réussi",
+    "Une erreur est survenue lors de l'ajout",
+    "Suppression réussie",
+    "Une erreur est survenue lors de la suppression"
+  ]
 }

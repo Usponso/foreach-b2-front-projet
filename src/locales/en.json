@@ -15,5 +15,13 @@
   "speed": "Speed",
   "default": "Default",
   "noFavorites": "No favorites yet",
-  "changeLangBtn": "Change language"
+  "changeLangBtn": "Change language",
+  "homeTitle": "Front vue.js project",
+  "homeDescription": "Practice vue.js with an api",
+  "alert": [
+    "Add favorite success",
+    "Add favorite error",
+    "Delete success",
+    "Delete error"
+  ]
 }

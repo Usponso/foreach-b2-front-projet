@@ -11,12 +11,11 @@
 
     <v-col class="mb-4">
       <h1 class="display-2 font-weight-bold mb-3">
-        Projet front avancé Foreach
+        {{ $t("homeTitle") }}
       </h1>
 
       <p class="subheading font-weight-regular">
-        Utilisation d'une api pour manipuler les différentes notions vues en
-        cours.
+        {{ $t("homeDescription") }}
       </p>
     </v-col>
   </v-container>

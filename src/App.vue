@@ -16,13 +16,13 @@
 
       <v-spacer></v-spacer>
 
-      <div v-if="$vuetify.breakpoint.mobile">
-        <v-btn text>
+      <div v-if="$vuetify.breakpoint.smAndDown">
+        <v-btn text :aria-label="$t('allPokemons')">
           <router-link to="/pokemons">
             <v-icon>mdi-pokeball</v-icon>
           </router-link>
         </v-btn>
-        <v-btn text>
+        <v-btn text :aria-label="$t('favorites')">
           <router-link to="/favoris">
             <v-icon>mdi-heart</v-icon>
           </router-link>
