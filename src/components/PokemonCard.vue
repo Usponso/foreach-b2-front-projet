@@ -3,7 +3,7 @@
     <v-card class="mx-auto" max-width="344" outlined>
       <v-list-item three-line>
         <v-list-item-content>
-          <div class="text-overline mb-4">POKEMON</div>
+          <div class="text-overline mb-4">#{{ pokemon.id }}</div>
           <v-list-item-title class="text-h5 mb-1 text-uppercase">
             <slot name="nom"></slot
           ></v-list-item-title>
@@ -18,12 +18,6 @@
             contain
           >
             <template v-slot:placeholder>
-              <!-- <v-row class="fill-height ma-0" align="center" justify="center">
-               <v-progress-circular
-                  indeterminate
-                  color="primary"
-                ></v-progress-circular>
-              </v-row>  -->
               <img
                 src="../assets/pokeball.png"
                 class="rotate"

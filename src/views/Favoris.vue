@@ -1,16 +1,17 @@
 <template>
   <v-container>
     <v-row no-gutters v-if="favoris.length">
+      {{ favoris }}
       <v-col md="4" v-for="pokemon in favoris" :key="pokemon.id"
-        ><pokemon-card class="pa-2" :name="pokemon.name">
-          <template #nom>{{ pokemon.name.toUpperCase() }}</template>
+        ><pokemon-card class="pa-2" :name="pokemon">
+          <template #nom>{{ pokemon.toUpperCase() }}</template>
           <template #lien
-            ><router-link :to="{ path: `pokemons/${pokemon.name}` }"
+            ><router-link :to="{ path: `pokemons/${pokemon}` }"
               ><v-btn color="primary" elevation="2">{{
                 $t("btnOpen")
               }}</v-btn></router-link
             >
-            <v-btn class="red white--text" @click="deleteFavoris(pokemon.name)"
+            <v-btn class="red white--text" @click="deleteFavoris(pokemon)"
               ><v-icon>mdi-delete</v-icon> {{ $t("btnDelete") }}</v-btn
             ></template
           ></pokemon-card
@@ -35,24 +36,19 @@
 </template>
 <script>
 import PokemonCard from "../components/PokemonCard.vue";
-import { getFavoris } from "../apis/pokemons";
 export default {
   name: "Favoris",
   components: {
     PokemonCard,
   },
-  data() {
-    return {
-      favoris: [],
-    };
+  computed: {
+    favoris() {
+      return this.$store.state.favoris;
+    },
   },
   methods: {
     deleteFavoris(name) {
       this.$store.commit("deleteFavoris", name);
-      this.getFavoris();
-    },
-    async getFavoris() {
-      this.favoris = await getFavoris(this.$store.state.favoris);
     },
     checkFav() {
       if (this.favoris) {
@@ -61,9 +57,6 @@ export default {
         return false;
       }
     },
-  },
-  async mounted() {
-    this.getFavoris();
   },
 };
 </script>
