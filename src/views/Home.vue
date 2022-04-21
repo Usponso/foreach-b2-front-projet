@@ -17,6 +17,8 @@
       <p class="subheading font-weight-regular">
         {{ $t("homeDescription") }}
       </p>
+
+      <p><a href="https://enzoaverlant.netlify.app/">Enzo Averlant</a></p>
     </v-col>
   </v-container>
 </template>
@@ -26,3 +28,12 @@ export default {
   name: "Home",
 };
 </script>
+<style scoped>
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+a {
+  font-size: 25px;
+}
+</style>
