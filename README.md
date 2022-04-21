@@ -2,13 +2,17 @@
 
 ## Enzo Averlant
 
-C'est le moment de mettre en pratique vos connaissances avec Vue.js et de mettre en applications les différentes fonctionnalités qui ont été étudiées en créant une app!
+## LIVE VERSION
+
+[Application](https://enzoaverlant.netlify.com)
 
 ## Quel est le projet (spécifications) ?
 
+C'est le moment de mettre en pratique vos connaissances avec Vue.js et de mettre en applications les différentes fonctionnalités qui ont été étudiées en créant une app!
+
 Le but est de proposer une expérience utilisateur à partir d'une API de votre choix. En voici quelques-unes, mais libre à vous d'en utiliser une autre (à condition qu'elle rentre dans le cadre du projet) ou même de flex vos compétences backend en la créant vous-mêmes.
 
-- [PokéAPI](https://pokeapi.co/)
+- [PokéAPI](https://pokeapi.co/) -> API sélectionée
 - [LoL's CDragon API](https://www.communitydragon.org/documentation)
 - [Rick & Morty API](https://rickandmortyapi.com/documentation)
 - [Studio Ghibli API](https://ghibliapi.herokuapp.com/)
