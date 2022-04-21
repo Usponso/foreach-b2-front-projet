@@ -4,7 +4,7 @@
 
 ## LIVE VERSION
 
-[Application](https://enzoaverlant.netlify.com)
+[Application](https://pokeapi-vuejs.netlify.app)
 
 ## Quel est le projet (spécifications) ?
 
